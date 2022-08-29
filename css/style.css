@@ -41,6 +41,12 @@ footer {
 
 }
 
+div.timerDisplayArea {
+     display: flex;
+     flex-flow: row nowrap;
+     column-gap: 5px;
+}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
