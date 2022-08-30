@@ -51,17 +51,27 @@ section.timerAndInstructionsArea {
 }
 h2#instructionDisplayArea {
      font-size: 36px;
+     margin-bottom: 12px;
+}
+section.timerDivs {
+     display: flex;
+     flex-flow: column nowrap;
+     border: 1px solid black;
 }
 div.timerDisplayArea {
      display: flex;
      flex-flow: row nowrap;
+     justify-content: center;
      column-gap: 5px;
      color: lightgray;
-     margin-top: -20px;
 }
-div.timerDisplayArea:nth-child(2) {
+div.timerDisplayArea:nth-child(1) {
      color: black;
      font-size: 24px;
+}
+div.timerDisplayArea p {
+     margin: 1px 5px;
+     text-align: center;
 }
 
 /******************************************

@@ -3,7 +3,7 @@ document.getElementById("beginButton").addEventListener("click", breatheIn)
 document.getElementById("restartButton").addEventListener("click", restart)
 
 let seconds = 0;
-let interval = 200;
+let interval = 1000;
 let breatheInTimer, holdTimer, breatheOutTimer;
 
 // ------------------------------------------------------------------------ //
@@ -16,7 +16,7 @@ function breatheIn() {
   }
 
   // Put BREATHE IN instruction into the DOM
-  document.getElementById("instructionDisplayArea").innerHTML = "breathe in deep..."
+  document.getElementById("instructionDisplayArea").innerHTML = "in..."
   // Put seconds into the DOM to begin counting
   document.getElementById("breatheInCountArea").innerHTML = "_";
   document.getElementById("holdCountArea").innerHTML = "_";
@@ -66,7 +66,7 @@ function countHold() {
 // Function to continue the breathing chain (BREATHE OUT)
 function breatheOut() {
   // Put BREATHE OUT instruction into the DOM
-  document.getElementById("instructionDisplayArea").innerHTML = "breathe out."
+  document.getElementById("instructionDisplayArea").innerHTML = "out."
   // Reset the counter in the DOM
   document.getElementById("breatheOutCountArea").innerHTML = "_";
 
@@ -85,7 +85,7 @@ function countBreatheOut() {
 
     // Clone current breathing cycle and put it in the DOM to keep track of cycles
     const clone = document.querySelector(".timerDisplayArea").cloneNode(true);
-    document.querySelector(".timerAndInstructionsArea").appendChild(clone);
+    document.querySelector(".timerDivs").appendChild(clone);
     
     // Restart the breathing cycle
     breatheIn();
@@ -103,9 +103,9 @@ function restart() {
 
   // Reset the seconds/instructions in the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "...";
-  document.getElementById("breatheInCountArea").innerHTML = "-";
-  document.getElementById("holdCountArea").innerHTML = "-";
-  document.getElementById("breatheOutCountArea").innerHTML = "-";
+  document.getElementById("breatheInCountArea").innerHTML = "_";
+  document.getElementById("holdCountArea").innerHTML = "_";
+  document.getElementById("breatheOutCountArea").innerHTML = "_";
 
   // Reset second count
   seconds = 0;
@@ -121,8 +121,8 @@ function restart() {
 
 // Function to reset the tower of previous cycles
 function removeCycles() {
-  let cycle = document.querySelector(".timerAndInstructionsArea");
-  while (cycle.childElementCount > 2) {
+  let cycle = document.querySelector(".timerDivs");
+  while (cycle.childElementCount > 1) {
     cycle.removeChild(cycle.lastChild);
   }
 }
