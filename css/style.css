@@ -26,7 +26,9 @@
 }
 
 body {
-
+     display: flex;
+     flex-flow: column nowrap;
+     align-items: center;
 }
 
 
@@ -41,10 +43,25 @@ footer {
 
 }
 
+section.timerAndInstructionsArea {
+     display: flex;
+     flex-flow: column wrap;
+     align-items: center;
+     border: 1px solid red;
+}
+h2#instructionDisplayArea {
+     font-size: 36px;
+}
 div.timerDisplayArea {
      display: flex;
      flex-flow: row nowrap;
      column-gap: 5px;
+     color: lightgray;
+     margin-top: -20px;
+}
+div.timerDisplayArea:nth-child(2) {
+     color: black;
+     font-size: 24px;
 }
 
 /******************************************

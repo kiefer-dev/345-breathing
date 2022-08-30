@@ -3,7 +3,7 @@ document.getElementById("beginButton").addEventListener("click", breatheIn)
 document.getElementById("restartButton").addEventListener("click", restart)
 
 let seconds = 0;
-let interval = 1000;
+let interval = 200;
 let breatheInTimer, holdTimer, breatheOutTimer;
 
 // ------------------------------------------------------------------------ //
@@ -16,7 +16,7 @@ function breatheIn() {
   }
 
   // Put BREATHE IN instruction into the DOM
-  document.getElementById("instructionArea").innerHTML = "breathe in deep..."
+  document.getElementById("instructionDisplayArea").innerHTML = "breathe in deep..."
   // Put seconds into the DOM to begin counting
   document.getElementById("breatheInCountArea").innerHTML = "_";
   document.getElementById("holdCountArea").innerHTML = "_";
@@ -42,7 +42,7 @@ function countBreatheIn() {
 // Function to continue the breathing chain (HOLD)
 function hold() {
   // Put HOLD instruction into the DOM
-  document.getElementById("instructionArea").innerHTML = "hold..."
+  document.getElementById("instructionDisplayArea").innerHTML = "hold..."
   // Reset the counter in the DOM
   document.getElementById("holdCountArea").innerHTML = "_";
 
@@ -66,7 +66,7 @@ function countHold() {
 // Function to continue the breathing chain (BREATHE OUT)
 function breatheOut() {
   // Put BREATHE OUT instruction into the DOM
-  document.getElementById("instructionArea").innerHTML = "breathe out."
+  document.getElementById("instructionDisplayArea").innerHTML = "breathe out."
   // Reset the counter in the DOM
   document.getElementById("breatheOutCountArea").innerHTML = "_";
 
@@ -102,7 +102,7 @@ function restart() {
   document.getElementById("restartButton").classList.toggle("hidden");
 
   // Reset the seconds/instructions in the DOM
-  document.getElementById("instructionArea").innerHTML = "...";
+  document.getElementById("instructionDisplayArea").innerHTML = "...";
   document.getElementById("breatheInCountArea").innerHTML = "-";
   document.getElementById("holdCountArea").innerHTML = "-";
   document.getElementById("breatheOutCountArea").innerHTML = "-";
