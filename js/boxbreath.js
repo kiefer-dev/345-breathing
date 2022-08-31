@@ -4,7 +4,7 @@ document.getElementById("restartButton").addEventListener("click", restart)
 
 let seconds = 0;
 let interval = 1000;
-let breatheInTimer, holdTimer, breatheOutTimer;
+let breatheInTimer, holdInTimer, breatheOutTimer, holdOutTimer;
 
 // ------------------------------------------------------------------------ //
 // Function to begin the breathing chain (BREATHE IN) (fires on clicking Begin button)
@@ -19,8 +19,9 @@ function breatheIn() {
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
   // Put seconds into the DOM to begin counting
   document.getElementById("breatheInCountArea").innerHTML = "_";
-  document.getElementById("holdCountArea").innerHTML = "_";
+  document.getElementById("holdInCountArea").innerHTML = "_";
   document.getElementById("breatheOutCountArea").innerHTML = "_";
+  document.getElementById("holdOutCountArea").innerHTML = "_";
 
   // Reset seconds
   seconds = 0;
@@ -30,35 +31,35 @@ function breatheIn() {
 // Function to count the BREATHE IN and put seconds into the DOM
 function countBreatheIn() {
   ++seconds;
-  if (seconds !== 3) {
+  if (seconds !== 4) {
     document.getElementById("breatheInCountArea").innerHTML = seconds;
   } else { // When 3 seconds have elapsed
-    document.getElementById("breatheInCountArea").innerHTML = "3";
+    document.getElementById("breatheInCountArea").innerHTML = "4";
     clearInterval(breatheInTimer);
-    hold();
+    holdIn();
   }
 }
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain (HOLD)
-function hold() {
+function holdIn() {
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "hold..."
   // Reset the counter in the DOM
-  document.getElementById("holdCountArea").innerHTML = "_";
+  document.getElementById("holdInCountArea").innerHTML = "_";
 
   // Reset seconds
   seconds = 0;
   // Initialize the timer
-  holdTimer = setInterval(countHold, interval);
+  holdInTimer = setInterval(countHoldIn, interval);
 }
 // Function to count the HOLD and put seconds into DOM
-function countHold() {
+function countHoldIn() {
   ++seconds;
   if (seconds !== 4) {
-    document.getElementById("holdCountArea").innerHTML = seconds;
+    document.getElementById("holdInCountArea").innerHTML = seconds;
   } else { // When 4 seconds have elapsed
-    document.getElementById("holdCountArea").innerHTML = "4";
-    clearInterval(holdTimer);
+    document.getElementById("holdInCountArea").innerHTML = "4";
+    clearInterval(holdInTimer);
     breatheOut();
   }
 }
@@ -66,7 +67,7 @@ function countHold() {
 // Function to continue the breathing chain (BREATHE OUT)
 function breatheOut() {
   // Put BREATHE OUT instruction into the DOM
-  document.getElementById("instructionDisplayArea").innerHTML = "out."
+  document.getElementById("instructionDisplayArea").innerHTML = "out..."
   // Reset the counter in the DOM
   document.getElementById("breatheOutCountArea").innerHTML = "_";
 
@@ -77,12 +78,36 @@ function breatheOut() {
 }
 function countBreatheOut() {
   ++seconds;
-  if (seconds !== 5) {
+  if (seconds !== 4) {
     document.getElementById("breatheOutCountArea").innerHTML = seconds;
   } else { // when 5 seconds have elapsed
-    document.getElementById("breatheOutCountArea").innerHTML = "5";
+    document.getElementById("breatheOutCountArea").innerHTML = "4";
     clearInterval(breatheOutTimer);
+    holdOut();
+  }
+}
+// ------------------------------------------------------------------------ //
+// Function to continue the breathing chain (HOLDOUT)
+function holdOut() {
+  // Put HOLD instruction into the DOM
+  document.getElementById("instructionDisplayArea").innerHTML = "hold..."
+  // Reset the counter in the DOM
+  document.getElementById("holdOutCountArea").innerHTML = "_";
 
+  // Reset seconds
+  seconds = 0;
+  // Initialize the timer
+  holdOutTimer = setInterval(countHoldOut, interval);
+}
+// Function to count the HOLD and put seconds into DOM
+function countHoldOut() {
+  ++seconds;
+  if (seconds !== 4) {
+    document.getElementById("holdOutCountArea").innerHTML = seconds;
+  } else { // When 4 seconds have elapsed
+    document.getElementById("holdOutCountArea").innerHTML = "4";
+    clearInterval(holdOutTimer);
+    
     // Clone current breathing cycle and put it in the DOM to keep track of cycles
     const clone = document.querySelector(".timerDisplayArea").cloneNode(true);
     document.querySelector(".timerDivs").appendChild(clone);
@@ -91,7 +116,6 @@ function countBreatheOut() {
     breatheIn();
   }
 }
-
 
 
 
@@ -104,15 +128,16 @@ function restart() {
   // Reset the seconds/instructions in the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "...";
   document.getElementById("breatheInCountArea").innerHTML = "_";
-  document.getElementById("holdCountArea").innerHTML = "_";
+  document.getElementById("holdInCountArea").innerHTML = "_";
   document.getElementById("breatheOutCountArea").innerHTML = "_";
+  document.getElementById("holdOutCountArea").innerHTML = "_";
 
   // Reset second count
   seconds = 0;
 
   // Stop the timer variable
   clearInterval(breatheInTimer);
-  clearInterval(holdTimer);
+  clearInterval(holdInTimer);
   clearInterval(breatheOutTimer);
 
   // Clear the tower of cycles
