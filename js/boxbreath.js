@@ -139,6 +139,7 @@ function restart() {
   clearInterval(breatheInTimer);
   clearInterval(holdInTimer);
   clearInterval(breatheOutTimer);
+  clearInterval(holdOutTimer);
 
   // Clear the tower of cycles
   removeCycles();
