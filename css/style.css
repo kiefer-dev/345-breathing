@@ -44,6 +44,9 @@ footer {
 
 }
 
+.titleArea {
+     text-align: center;
+}
 section.timerAndInstructionsArea {
      display: flex;
      flex-flow: column wrap;
