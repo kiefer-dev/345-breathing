@@ -30,6 +30,7 @@ body {
      flex-flow: column nowrap;
      align-items: center;
      font-family: 'Poppins', sans-serif;
+     margin: 0 50px 0 50px;
 }
 
 
@@ -50,10 +51,21 @@ footer {
 }
 .aboutArea {
      margin-top: 100px;
+     display: flex;
+     flex-flow: column nowrap;
+     align-items: center;
 }
 .aboutArea a {
      font-weight: bold;
      text-decoration: underline;
+}
+.aboutArea div {
+     margin-top: -3px;
+     text-align: center;
+     border: 1px solid rgb(172, 172, 172);
+     width: 80%;
+     max-width: 650px;
+     padding: 25px;
 }
 
 
