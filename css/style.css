@@ -29,6 +29,7 @@ body {
      display: flex;
      flex-flow: column nowrap;
      align-items: center;
+     font-family: 'Poppins', sans-serif;
 }
 
 
@@ -47,6 +48,15 @@ footer {
 .titleArea {
      text-align: center;
 }
+.aboutArea {
+     margin-top: 100px;
+}
+.aboutArea a {
+     font-weight: bold;
+     text-decoration: underline;
+}
+
+
 section.timerAndInstructionsArea {
      display: flex;
      flex-flow: column wrap;
@@ -81,3 +91,7 @@ div.timerDisplayArea p {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+.hidden {
+     display: none;
+}
