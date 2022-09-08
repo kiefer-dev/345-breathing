@@ -1,3 +1,4 @@
+@import url(fontawesome-all.min.css);
 /* Box Model Hack */
 * {
      box-sizing: border-box;
@@ -73,7 +74,7 @@ section.timerAndInstructionsArea {
      display: flex;
      flex-flow: column wrap;
      align-items: center;
-     border: 1px solid red;
+     /* border: 1px solid red; */
 }
 h2#instructionDisplayArea {
      font-size: 36px;
@@ -82,7 +83,7 @@ h2#instructionDisplayArea {
 section.timerDivs {
      display: flex;
      flex-flow: column nowrap;
-     border: 1px solid black;
+     /* border: 1px solid black; */
 }
 div.timerDisplayArea {
      display: flex;
