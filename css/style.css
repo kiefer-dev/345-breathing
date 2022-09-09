@@ -63,7 +63,7 @@ footer {
 .aboutArea div {
      margin-top: -3px;
      text-align: center;
-     border: 1px solid rgb(172, 172, 172);
+     border: 1px solid rgb(34, 34, 36);
      width: 80%;
      max-width: 650px;
      padding: 25px;
@@ -107,4 +107,33 @@ div.timerDisplayArea p {
 
 .hidden {
      display: none;
+}
+
+/* Light Mode */
+.light-mode {
+     background-color: rgb(164, 167, 182);
+     color: rgb(34, 34, 36);
+}
+.light-mode a:visited {
+     color: inherit;
+}
+.light-mode a:link {
+     color: rgb(34, 34, 36);
+}
+.light-mode a:hover {
+     color: rgb(98, 98, 121);
+     text-decoration: underline;
+}
+
+
+/* Dark Mode */
+.dark-mode {
+     background-color: rgb(34, 34, 36);
+     color: rgb(164, 167, 182);
+}
+
+
+.light-mode a,
+.dark-mode a {
+     text-decoration: none;
 }
