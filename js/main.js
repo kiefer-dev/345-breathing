@@ -1,5 +1,5 @@
 document.querySelector('.aboutButton').addEventListener('click', showAboutText);
 
 function showAboutText() {
-  document.querySelector('.aboutText').classList.toggle('hidden');
+  document.querySelector('.about-text').classList.toggle('hidden');
 }

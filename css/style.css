@@ -46,20 +46,20 @@ footer {
 
 }
 
-.titleArea {
+.title-area {
      text-align: center;
 }
-.aboutArea {
+.about-area {
      margin-top: 100px;
      display: flex;
      flex-flow: column nowrap;
      align-items: center;
 }
-.aboutArea a {
+.about-area a {
      font-weight: bold;
      text-decoration: underline;
 }
-.aboutArea div {
+.about-area div {
      margin-top: -3px;
      text-align: center;
      border: 1px solid rgb(34, 34, 36);
@@ -67,12 +67,12 @@ footer {
      max-width: 650px;
      padding: 25px;
 }
-.aboutArea li {
+.about-area li {
      display: inline-block;
 }
 
 
-section.timerAndInstructionsArea {
+section.timer-and-instructions-area {
      display: flex;
      flex-flow: column wrap;
      align-items: center;
@@ -82,23 +82,23 @@ h2#instructionDisplayArea {
      font-size: 36px;
      margin-bottom: 12px;
 }
-section.timerDivs {
+section.timer-divs {
      display: flex;
      flex-flow: column nowrap;
      /* border: 1px solid black; */
 }
-div.timerDisplayArea {
+div.timer-display-area {
      display: flex;
      flex-flow: row nowrap;
      justify-content: center;
      column-gap: 5px;
      color: rgb(98, 98, 121);
 }
-div.timerDisplayArea:nth-child(1) {
+div.timer-display-area:nth-child(1) {
      color: black;
      font-size: 24px;
 }
-div.timerDisplayArea p {
+div.timer-display-area p {
      margin: 1px 5px;
      text-align: center;
 }
