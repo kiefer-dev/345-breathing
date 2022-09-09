@@ -1,4 +1,3 @@
-@import url(fontawesome-all.min.css);
 /* Box Model Hack */
 * {
      box-sizing: border-box;
@@ -90,7 +89,7 @@ div.timerDisplayArea {
      flex-flow: row nowrap;
      justify-content: center;
      column-gap: 5px;
-     color: lightgray;
+     color: rgb(98, 98, 121);
 }
 div.timerDisplayArea:nth-child(1) {
      color: black;
