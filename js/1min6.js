@@ -179,8 +179,8 @@ function countBreath6() {
     clearInterval(breath6Timer);
 
     // Clone current breathing cycle and put it in the DOM to keep track of cycles
-    const clone = document.querySelector(".timerDisplayArea").cloneNode(true);
-    document.querySelector(".timerDivs").appendChild(clone);
+    const clone = document.querySelector(".timer-display-area").cloneNode(true);
+    document.querySelector(".timer-divs").appendChild(clone);
     
     // Restart the breathing cycle
     breath1();
@@ -221,7 +221,7 @@ function restart() {
 
 // Function to reset the tower of previous cycles
 function removeCycles() {
-  let cycle = document.querySelector(".timerDivs");
+  let cycle = document.querySelector(".timer-divs");
   while (cycle.childElementCount > 1) {
     cycle.removeChild(cycle.lastChild);
   }
