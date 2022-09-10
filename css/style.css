@@ -68,9 +68,9 @@ footer {
      padding: 25px;
 }
 
-.settings-section {
-     width: 40%;
-     max-width: 600px;
+.settings-section { /* FIX THIS!!! */
+     /* width: 40%;
+     max-width: 600px; */
 }
 .settings-section p {
      text-align: left;
