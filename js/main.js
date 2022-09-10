@@ -1,3 +1,4 @@
+// Logic for showing ABOUT section
 document.getElementById('aboutButton').addEventListener('click', showAboutText);
 function showAboutText() {
   document.querySelector('.about-text').classList.toggle('hidden');
@@ -7,6 +8,7 @@ function showAboutText() {
   }
 }
 
+// Logic for showing SETTINGS section
 document.getElementById('settingsButton').addEventListener('click', showSettings);
 function showSettings() {
   document.querySelector('.settings-section').classList.toggle('hidden');
@@ -16,6 +18,7 @@ function showSettings() {
   }
 }
 
+// Logic for toggling dark mode
 document.getElementById('darkModeCheckbox').addEventListener('change', toggleDarkMode);
 function toggleDarkMode() {
   if (document.getElementById('darkModeCheckbox').checked) {

@@ -138,6 +138,20 @@ div.timer-display-area p {
      background-color: rgb(34, 34, 36);
      color: rgb(164, 167, 182);
 }
+.dark-mode a:visited {
+     color: inherit;
+}
+.dark-mode a:link {
+     color: rgb(164, 167, 182);
+}
+.dark-mode a:hover {
+     color: rgb(98, 98, 121);
+     text-decoration: underline;
+}
+.dark-mode .about-text,
+.dark-mode .settings-section {
+     border: 1px solid rgb(164, 167, 182);
+}
 
 
 .light-mode a,
