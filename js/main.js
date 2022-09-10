@@ -18,15 +18,27 @@ function showSettings() {
   }
 }
 
-// Logic for toggling dark mode
+// Logic for toggling dark mode, setting up local storage to save setting
 document.getElementById('darkModeCheckbox').addEventListener('change', toggleDarkMode);
+let darkModeUserSetting = localStorage.getItem('darkMode');
+if (darkModeUserSetting === 'true') {
+  document.getElementById('darkModeCheckbox').checked = true;
+  document.querySelector('body').classList.add('dark-mode');
+  document.querySelector('body').classList.remove('light-mode');
+} else if (darkModeUserSetting === 'false') {
+  document.getElementById('darkModeCheckbox').checked = false;
+  document.querySelector('body').classList.add('light-mode');
+  document.querySelector('body').classList.remove('dark-mode');
+}
 function toggleDarkMode() {
   if (document.getElementById('darkModeCheckbox').checked) {
     document.querySelector('body').classList.toggle('light-mode');
     document.querySelector('body').classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', true);
   } else {
     document.querySelector('body').classList.toggle('light-mode');
     document.querySelector('body').classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', false);
   }
 }
 
