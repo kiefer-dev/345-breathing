@@ -141,7 +141,8 @@ div.timer-display-area p {
 .dark-mode a:visited {
      color: inherit;
 }
-.dark-mode a:link {
+.dark-mode a:link,
+.dark-mode .timer-divs div:first-child {
      color: rgb(164, 167, 182);
 }
 .dark-mode a:hover {
@@ -152,7 +153,6 @@ div.timer-display-area p {
 .dark-mode .settings-section {
      border: 1px solid rgb(164, 167, 182);
 }
-
 
 .light-mode a,
 .dark-mode a {
