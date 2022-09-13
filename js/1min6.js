@@ -6,9 +6,20 @@ let seconds = 0;
 let interval = 1000;
 let breath1Timer, breath2Timer, breath3Timer, breath4Timer, breath5Timer, breath6Timer;
 
+// Set up speech mode
+let speech = new SpeechSynthesisUtterance();
+window.speechSynthesis.onvoiceschanged = function() {
+  const voices = window.speechSynthesis.getVoices();
+  console.log(voices);
+  speech.voice = voices[0]
+};
+
 // ------------------------------------------------------------------------ //
 // Function to begin the breathing chain (BREATH1) (fires on clicking Begin button)
 function breath1() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+  
   // Swap visibility of begin/restart buttons, but only if the timer is new
   if (!document.getElementById("beginButton").classList.contains("hidden")) {
     document.getElementById("beginButton").classList.toggle("hidden");
@@ -17,6 +28,10 @@ function breath1() {
 
   // Put BREATHE IN instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "in";
+    window.speechSynthesis.speak(speech);
+  }
   // Put seconds into the DOM to begin counting
   document.getElementById("breath1CountArea").innerHTML = "_";
   document.getElementById("breath2CountArea").innerHTML = "_";
@@ -38,6 +53,10 @@ function countBreath1() {
     document.getElementById("breath1CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
+      if (speechModeUserSetting === 'true') {
+        speech.text = "out";
+        window.speechSynthesis.speak(speech);
+      }
     }
   } else { // When 10 seconds have elapsed
     document.getElementById("breath1CountArea").innerHTML = "10";
@@ -48,8 +67,15 @@ function countBreath1() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain
 function breath2() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+  
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "in";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("breath2CountArea").innerHTML = "_";
 
@@ -65,6 +91,10 @@ function countBreath2() {
     document.getElementById("breath2CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
+      if (speechModeUserSetting === 'true') {
+        speech.text = "out";
+        window.speechSynthesis.speak(speech);
+      }
     }
   } else { // When 10 seconds have elapsed
     document.getElementById("breath2CountArea").innerHTML = "10";
@@ -75,8 +105,15 @@ function countBreath2() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain
 function breath3() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+  
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "in";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("breath3CountArea").innerHTML = "_";
 
@@ -92,6 +129,10 @@ function countBreath3() {
     document.getElementById("breath3CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
+      if (speechModeUserSetting === 'true') {
+        speech.text = "out";
+        window.speechSynthesis.speak(speech);
+      }
     }
   } else { // When 10 seconds have elapsed
     document.getElementById("breath3CountArea").innerHTML = "10";
@@ -102,8 +143,15 @@ function countBreath3() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain
 function breath4() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+  
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "in";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("breath4CountArea").innerHTML = "_";
 
@@ -119,6 +167,10 @@ function countBreath4() {
     document.getElementById("breath4CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
+      if (speechModeUserSetting === 'true') {
+        speech.text = "out";
+        window.speechSynthesis.speak(speech);
+      }
     }
   } else { // When 10 seconds have elapsed
     document.getElementById("breath4CountArea").innerHTML = "10";
@@ -129,8 +181,15 @@ function countBreath4() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain
 function breath5() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+  
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "in";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("breath5CountArea").innerHTML = "_";
 
@@ -146,6 +205,10 @@ function countBreath5() {
     document.getElementById("breath5CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
+      if (speechModeUserSetting === 'true') {
+        speech.text = "out";
+        window.speechSynthesis.speak(speech);
+      }
     }
   } else { // When 10 seconds have elapsed
     document.getElementById("breath5CountArea").innerHTML = "10";
@@ -156,8 +219,15 @@ function countBreath5() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain
 function breath6() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+  
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "in";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("breath6CountArea").innerHTML = "_";
 
@@ -173,6 +243,10 @@ function countBreath6() {
     document.getElementById("breath6CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
+      if (speechModeUserSetting === 'true') {
+        speech.text = "out";
+        window.speechSynthesis.speak(speech);
+      }
     }
   } else { // When 10 seconds have elapsed
     document.getElementById("breath6CountArea").innerHTML = "10";
