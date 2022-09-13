@@ -42,5 +42,22 @@ function toggleDarkMode() {
   }
 }
 
+// Logic for toggling speech mode, setting up local storage to save setting
+document.getElementById('speechModeCheckbox').addEventListener('change', toggleSpeechMode);
+let speechModeUserSetting = localStorage.getItem('speechMode');
+if (speechModeUserSetting === 'true') {
+  document.getElementById('speechModeCheckbox').checked = true;
 
-// Todo: set up local storage to remember user's settings
+} else if (speechModeUserSetting === 'false') {
+  document.getElementById('speechModeCheckbox').checked = false;
+
+}
+function toggleSpeechMode() {
+  if (document.getElementById('speechModeCheckbox').checked) {
+
+    localStorage.setItem('speechMode', true);
+  } else {
+
+    localStorage.setItem('speechMode', false);
+  }
+}
