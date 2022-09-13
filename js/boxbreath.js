@@ -205,7 +205,7 @@ function removeCycles() {
 // Function to set the speechmode voice
 function setVoice(setting) {
   if (setting === 'masc') {
-    speech.voice = voices[0]
+    speech.voice = voices[4]
   } else {
     speech.voice = voices[5]
   }

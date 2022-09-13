@@ -8,17 +8,20 @@ let breatheInTimer, holdTimer, breatheOutTimer;
 
 // Set up speech mode
 let speech = new SpeechSynthesisUtterance();
+let voices;
 window.speechSynthesis.onvoiceschanged = function() {
-  const voices = window.speechSynthesis.getVoices();
-  console.log(voices);
-  speech.voice = voices[0]
-};
+  voices = window.speechSynthesis.getVoices();
+  console.log(voices)
+}
 
 // ------------------------------------------------------------------------ //
 // Function to begin the breathing chain (BREATHE IN) (fires on clicking Begin button)
 function breatheIn() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Swap visibility of begin/restart buttons, but only if the timer is new
   if (!document.getElementById("beginButton").classList.contains("hidden")) {
@@ -28,7 +31,7 @@ function breatheIn() {
 
   // Put BREATHE IN instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "in";
     window.speechSynthesis.speak(speech);
   }
@@ -58,10 +61,13 @@ function countBreatheIn() {
 function hold() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "hold..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "hold";
     window.speechSynthesis.speak(speech);
   }
@@ -89,10 +95,13 @@ function countHold() {
 function breatheOut() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Put BREATHE OUT instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "out."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "out";
     window.speechSynthesis.speak(speech);
   }
@@ -153,5 +162,14 @@ function removeCycles() {
   let cycle = document.querySelector(".timer-divs");
   while (cycle.childElementCount > 1) {
     cycle.removeChild(cycle.lastChild);
+  }
+}
+
+// Function to set the speechmode voice
+function setVoice(setting) {
+  if (setting === 'masc') {
+    speech.voice = voices[4]
+  } else {
+    speech.voice = voices[5]
   }
 }
