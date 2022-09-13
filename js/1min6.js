@@ -8,17 +8,20 @@ let breath1Timer, breath2Timer, breath3Timer, breath4Timer, breath5Timer, breath
 
 // Set up speech mode
 let speech = new SpeechSynthesisUtterance();
+let voices;
 window.speechSynthesis.onvoiceschanged = function() {
-  const voices = window.speechSynthesis.getVoices();
-  console.log(voices);
-  speech.voice = voices[0]
-};
+  voices = window.speechSynthesis.getVoices();
+  console.log(voices)
+}
 
 // ------------------------------------------------------------------------ //
 // Function to begin the breathing chain (BREATH1) (fires on clicking Begin button)
 function breath1() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Swap visibility of begin/restart buttons, but only if the timer is new
   if (!document.getElementById("beginButton").classList.contains("hidden")) {
@@ -28,7 +31,7 @@ function breath1() {
 
   // Put BREATHE IN instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "in";
     window.speechSynthesis.speak(speech);
   }
@@ -53,7 +56,7 @@ function countBreath1() {
     document.getElementById("breath1CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
-      if (speechModeUserSetting === 'true') {
+      if (speechModeUserSetting) {
         speech.text = "out";
         window.speechSynthesis.speak(speech);
       }
@@ -69,10 +72,13 @@ function countBreath1() {
 function breath2() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "in";
     window.speechSynthesis.speak(speech);
   }
@@ -91,7 +97,7 @@ function countBreath2() {
     document.getElementById("breath2CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
-      if (speechModeUserSetting === 'true') {
+      if (speechModeUserSetting) {
         speech.text = "out";
         window.speechSynthesis.speak(speech);
       }
@@ -107,10 +113,13 @@ function countBreath2() {
 function breath3() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "in";
     window.speechSynthesis.speak(speech);
   }
@@ -129,7 +138,7 @@ function countBreath3() {
     document.getElementById("breath3CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
-      if (speechModeUserSetting === 'true') {
+      if (speechModeUserSetting) {
         speech.text = "out";
         window.speechSynthesis.speak(speech);
       }
@@ -145,10 +154,13 @@ function countBreath3() {
 function breath4() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "in";
     window.speechSynthesis.speak(speech);
   }
@@ -167,7 +179,7 @@ function countBreath4() {
     document.getElementById("breath4CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
-      if (speechModeUserSetting === 'true') {
+      if (speechModeUserSetting) {
         speech.text = "out";
         window.speechSynthesis.speak(speech);
       }
@@ -183,10 +195,13 @@ function countBreath4() {
 function breath5() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "in";
     window.speechSynthesis.speak(speech);
   }
@@ -205,7 +220,7 @@ function countBreath5() {
     document.getElementById("breath5CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
-      if (speechModeUserSetting === 'true') {
+      if (speechModeUserSetting) {
         speech.text = "out";
         window.speechSynthesis.speak(speech);
       }
@@ -221,10 +236,13 @@ function countBreath5() {
 function breath6() {
   // Check for speech mode
   speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting) {
+    setVoice(speechModeUserSetting)
+  }
   
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
-  if (speechModeUserSetting === 'true') {
+  if (speechModeUserSetting) {
     speech.text = "in";
     window.speechSynthesis.speak(speech);
   }
@@ -243,7 +261,7 @@ function countBreath6() {
     document.getElementById("breath6CountArea").innerHTML = seconds;
     if (seconds === 5) {
       document.getElementById("instructionDisplayArea").innerHTML = "out..."
-      if (speechModeUserSetting === 'true') {
+      if (speechModeUserSetting) {
         speech.text = "out";
         window.speechSynthesis.speak(speech);
       }
@@ -298,5 +316,14 @@ function removeCycles() {
   let cycle = document.querySelector(".timer-divs");
   while (cycle.childElementCount > 1) {
     cycle.removeChild(cycle.lastChild);
+  }
+}
+
+// Function to set the speechmode voice
+function setVoice(setting) {
+  if (setting === 'masc') {
+    speech.voice = voices[4]
+  } else {
+    speech.voice = voices[5]
   }
 }
