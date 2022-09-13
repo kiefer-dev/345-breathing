@@ -43,21 +43,41 @@ function toggleDarkMode() {
 }
 
 // Logic for toggling speech mode, setting up local storage to save setting
-document.getElementById('speechModeCheckbox').addEventListener('change', toggleSpeechMode);
+document.getElementById('speechModeCheckboxMasc').addEventListener('change', toggleSpeechModeMasc);
+document.getElementById('speechModeCheckboxFem').addEventListener('change', toggleSpeechModeFem);
+
 let speechModeUserSetting = localStorage.getItem('speechMode');
-if (speechModeUserSetting === 'true') {
-  document.getElementById('speechModeCheckbox').checked = true;
-
-} else if (speechModeUserSetting === 'false') {
-  document.getElementById('speechModeCheckbox').checked = false;
-
+if (speechModeUserSetting === 'masc') {
+  document.getElementById('speechModeCheckboxMasc').checked = true;
+  document.getElementById('speechModeCheckboxFem').checked = false;
+} else if (speechModeUserSetting === 'fem') {
+  document.getElementById('speechModeCheckboxMasc').checked = false;
+  document.getElementById('speechModeCheckboxFem').checked = true;
+} else {
+  document.getElementById('speechModeCheckboxMasc').checked = false;
+  document.getElementById('speechModeCheckboxFem').checked = false;
 }
-function toggleSpeechMode() {
-  if (document.getElementById('speechModeCheckbox').checked) {
-
-    localStorage.setItem('speechMode', true);
-  } else {
-
-    localStorage.setItem('speechMode', false);
+function toggleSpeechModeMasc() {
+  // Uncheck fembox
+  if (document.getElementById('speechModeCheckboxFem').checked) {
+    document.getElementById('speechModeCheckboxFem').checked = false;
+  }
+  // If the mascbox has been checked
+  if (document.getElementById('speechModeCheckboxMasc').checked) {
+    localStorage.setItem('speechMode', 'masc');
+  } else { // If the mascbox has been unchecked
+    localStorage.removeItem('speechMode');
+  }
+}
+function toggleSpeechModeFem() {
+  // Uncheck mascbox
+  if (document.getElementById('speechModeCheckboxMasc').checked) {
+    document.getElementById('speechModeCheckboxMasc').checked = false;
+  }
+  // If the fembox has been checked
+  if (document.getElementById('speechModeCheckboxFem').checked) {
+    localStorage.setItem('speechMode', 'fem');
+  } else { // If the fembox has been unchecked
+    localStorage.removeItem('speechMode');
   }
 }
