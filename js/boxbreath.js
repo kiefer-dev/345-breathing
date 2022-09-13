@@ -6,9 +6,21 @@ let seconds = 0;
 let interval = 1000;
 let breatheInTimer, holdInTimer, breatheOutTimer, holdOutTimer;
 
+// Set up speech mode
+let speech = new SpeechSynthesisUtterance();
+window.speechSynthesis.onvoiceschanged = function() {
+  const voices = window.speechSynthesis.getVoices();
+  console.log(voices);
+  speech.voice = voices[0]
+};
+
+
 // ------------------------------------------------------------------------ //
 // Function to begin the breathing chain (BREATHE IN) (fires on clicking Begin button)
 function breatheIn() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+
   // Swap visibility of begin/restart buttons, but only if the timer is new
   if (!document.getElementById("beginButton").classList.contains("hidden")) {
     document.getElementById("beginButton").classList.toggle("hidden");
@@ -17,6 +29,10 @@ function breatheIn() {
 
   // Put BREATHE IN instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "in..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "in";
+    window.speechSynthesis.speak(speech);
+  }
   // Put seconds into the DOM to begin counting
   document.getElementById("breatheInCountArea").innerHTML = "_";
   document.getElementById("holdInCountArea").innerHTML = "_";
@@ -42,8 +58,15 @@ function countBreatheIn() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain (HOLD)
 function holdIn() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "hold..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "hold";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("holdInCountArea").innerHTML = "_";
 
@@ -66,8 +89,15 @@ function countHoldIn() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain (BREATHE OUT)
 function breatheOut() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+
   // Put BREATHE OUT instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "out..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "out";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("breatheOutCountArea").innerHTML = "_";
 
@@ -89,8 +119,15 @@ function countBreatheOut() {
 // ------------------------------------------------------------------------ //
 // Function to continue the breathing chain (HOLDOUT)
 function holdOut() {
+  // Check for speech mode
+  speechModeUserSetting = localStorage.getItem('speechMode');
+
   // Put HOLD instruction into the DOM
   document.getElementById("instructionDisplayArea").innerHTML = "hold..."
+  if (speechModeUserSetting === 'true') {
+    speech.text = "hold";
+    window.speechSynthesis.speak(speech);
+  }
   // Reset the counter in the DOM
   document.getElementById("holdOutCountArea").innerHTML = "_";
 
