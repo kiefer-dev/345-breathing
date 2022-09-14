@@ -59,7 +59,7 @@ if (!navigator.userAgent.match(/Android/i) && !navigator.userAgent.match(/iPhone
     document.getElementById('speechModeCheckboxFem').checked = false;
   }
 } else {
-  document.querySelectorAll('speech-setting').classList.add('hidden');
+  document.querySelector('.speech-setting').classList.add('hidden');
 }
 
 function toggleSpeechModeMasc() {
