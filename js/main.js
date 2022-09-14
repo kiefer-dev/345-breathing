@@ -43,7 +43,7 @@ function toggleDarkMode() {
 }
 
 // Logic for toggling speech mode, setting up local storage to save setting
-if ('speechSynthesis' in window) {
+if (!navigator.userAgent.match(/Android/i) && !navigator.userAgent.match(/iPhone/i)) {
   document.getElementById('speechModeCheckboxMasc').addEventListener('change', toggleSpeechModeMasc);
   document.getElementById('speechModeCheckboxFem').addEventListener('change', toggleSpeechModeFem);
 
