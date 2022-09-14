@@ -43,20 +43,25 @@ function toggleDarkMode() {
 }
 
 // Logic for toggling speech mode, setting up local storage to save setting
-document.getElementById('speechModeCheckboxMasc').addEventListener('change', toggleSpeechModeMasc);
-document.getElementById('speechModeCheckboxFem').addEventListener('change', toggleSpeechModeFem);
+if ('speechSynthesis' in window) {
+  document.getElementById('speechModeCheckboxMasc').addEventListener('change', toggleSpeechModeMasc);
+  document.getElementById('speechModeCheckboxFem').addEventListener('change', toggleSpeechModeFem);
 
-let speechModeUserSetting = localStorage.getItem('speechMode');
-if (speechModeUserSetting === 'masc') {
-  document.getElementById('speechModeCheckboxMasc').checked = true;
-  document.getElementById('speechModeCheckboxFem').checked = false;
-} else if (speechModeUserSetting === 'fem') {
-  document.getElementById('speechModeCheckboxMasc').checked = false;
-  document.getElementById('speechModeCheckboxFem').checked = true;
+  let speechModeUserSetting = localStorage.getItem('speechMode');
+  if (speechModeUserSetting === 'masc') {
+    document.getElementById('speechModeCheckboxMasc').checked = true;
+    document.getElementById('speechModeCheckboxFem').checked = false;
+  } else if (speechModeUserSetting === 'fem') {
+    document.getElementById('speechModeCheckboxMasc').checked = false;
+    document.getElementById('speechModeCheckboxFem').checked = true;
+  } else {
+    document.getElementById('speechModeCheckboxMasc').checked = false;
+    document.getElementById('speechModeCheckboxFem').checked = false;
+  }
 } else {
-  document.getElementById('speechModeCheckboxMasc').checked = false;
-  document.getElementById('speechModeCheckboxFem').checked = false;
+  document.querySelectorAll('speech-setting').classList.add('hidden');
 }
+
 function toggleSpeechModeMasc() {
   // Uncheck fembox
   if (document.getElementById('speechModeCheckboxFem').checked) {
