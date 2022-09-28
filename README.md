@@ -3,7 +3,7 @@ Simple, light-weight web app that guides users through multiple different breath
 
 **Link to project:** https://kiefer-dev.github.io/breath-guide/
 
-![Screenshot of the 3-4-5 Breath page, showing basic functionality of the web app](https://raw.githubusercontent.com/kiefer-dev/breath-guide/main/assets/breath%20guide%20sample%20page.jpg)
+![.gif of the 3-4-5 Breath page, showing basic functionality of the web app](https://github.com/kiefer-dev/breath-guide/blob/main/assets/345breathreadme.gif?raw=true)
 
 ## How It's Made:
 
