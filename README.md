@@ -13,8 +13,8 @@ As someone who finds great benefit in practicing different types of breathing ex
 
 ## Optimizations
 
-Over time I plan on adding new breathing exercises, and more detailed descriptions of the exercises and their benefits. The JavaScript is spread out over individual files for each different breathing exercise; there is definitely some optimization possible with the logic behind the exercises. Ideally, the breathe-in / hold / breathe-out instructions would be standardized functions in order to be used repeatedly instead of having specific changes per exercise - this is something I plan on returning to at a later date.
-I also coded all of the layout and design myself - I'm not a designer, so I definitely could have done a better job at styling and layout (perhaps using Bootstrap).
+Over time I plan on adding new breathing exercises, and more detailed descriptions of the exercises and their benefits. The JavaScript is spread out over individual files for each different breathing exercise; there is definitely some optimization possible with the logic behind the exercises. Having recently started learning about SOLID principles of programming, I know there are ways that I'd be able to implement these principles into this app's design. Ideally, the breathe-in / hold / breathe-out instructions would be standardized functions in order to be used repeatedly instead of having specific changes per exercise - this is something I plan on returning to at a later date.
+I also did all of the layout and design myself - I'm not a designer, so I definitely could have done a better job at styling and layout). I plan on returning to the UI and utilizing React.js components once I have more experience with React.
 
 ## Lessons Learned:
 
