@@ -116,6 +116,10 @@ div.timer-display-area p {
      display: none;
 }
 
+#urgent {
+     font-weight: 900;
+}
+
 /* Light Mode */
 .light-mode {
      background-color: rgb(164, 167, 182);
