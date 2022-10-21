@@ -1,7 +1,7 @@
 # Breath Guide
 Simple, light-weight web app that guides users through multiple different breathing techniques whether on desktop or mobile browsers.
 
-**Link to project:** https://kiefer-dev.github.io/breath-guide/
+**Link to project:** https://kiefer-dev.github.io/BreathGuide/
 
 ![.gif of the 3-4-5 Breath page, showing basic functionality of the web app](https://github.com/kiefer-dev/breath-guide/blob/main/assets/345breathreadme.gif?raw=true)
 
